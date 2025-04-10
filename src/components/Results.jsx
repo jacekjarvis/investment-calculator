@@ -1,7 +1,8 @@
-import * as util from "../util/investment";
-const format = util.formatter.format;
+import { formatter } from "../util/investment";
+const format = formatter.format;
 
-export default function Results() {
+export default function Results({ resultList }) {
+  let totalInterest = 0;
   return (
     <div>
       <table id="result">
@@ -15,13 +16,18 @@ export default function Results() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>1</td>
-            <td>{format(11800)}</td>
-            <td>{format(600)}</td>
-            <td>{format(600)}</td>
-            <td>{format(11200)}</td>
-          </tr>
+          {resultList.map((result) => {
+            totalInterest += result.interest;
+            return (
+              <tr key={result.year}>
+                <td>{result.year}</td>
+                <td>{format(result.valueEndOfYear)}</td>
+                <td>{format(result.interest)}</td>
+                <td>{format(totalInterest)}</td>
+                <td>{format(result.annualInvestment)}</td>
+              </tr>
+            );
+          })}
         </tbody>
       </table>
     </div>

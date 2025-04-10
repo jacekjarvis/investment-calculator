@@ -1,18 +1,37 @@
 import UserInput from "./UserInput";
 
-export default function UserInputFields() {
+export default function UserInputFields({ data, onChangeInput }) {
   return (
     <div id="user-input">
-      <form>
-        <div class="input-group">
-          <UserInput name="intialInvestment" label="Intial Investment" />
-          <UserInput name="annualInvestment" label="Annual Investment" />
-        </div>
-        <div class="input-group">
-          <UserInput name="expectedReturn" label="Expect Return" />
-          <UserInput name="duration" label="Duration" />
-        </div>
-      </form>
+      <div className="input-group">
+        <UserInput
+          name="initialInvestment"
+          label="Initial Investment"
+          onChange={onChangeInput}
+          data={data}
+        />
+        <UserInput
+          name="annualInvestment"
+          label="Annual Investment"
+          onChange={onChangeInput}
+          data={data}
+        />
+      </div>
+      <br />
+      <div className="input-group">
+        <UserInput
+          name="expectedReturn"
+          label="Expect Return"
+          onChange={onChangeInput}
+          data={data}
+        />
+        <UserInput
+          name="duration"
+          label="Duration"
+          onChange={onChangeInput}
+          data={data}
+        />
+      </div>
     </div>
   );
 }

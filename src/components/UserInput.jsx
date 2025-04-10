@@ -1,8 +1,22 @@
-export default function UserInput({ initialInvestment, label }) {
+export default function UserInput({ name, label, data, onChange }) {
+  let value = data[name];
+
+  function handleInputChange(event) {
+    let dataCopy = { ...data };
+    dataCopy[name] = parseFloat(event.target.value);
+    onChange(dataCopy);
+  }
+
   return (
     <div>
-      <label for={initialInvestment}>{label}</label>
-      <input type="number" id={initialInvestment} name={initialInvestment} />
+      <label htmlFor={name}>{label}</label>
+      <input
+        type="number"
+        id={name}
+        name={name}
+        onChange={handleInputChange}
+        value={value}
+      />
     </div>
   );
 }
