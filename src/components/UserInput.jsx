@@ -3,7 +3,7 @@ export default function UserInput({ name, label, data, onChange }) {
 
   function handleInputChange(event) {
     let dataCopy = { ...data };
-    dataCopy[name] = parseFloat(event.target.value);
+    dataCopy[name] = +event.target.value;
     onChange(dataCopy);
   }
 

@@ -20,12 +20,17 @@ function App() {
       return newInput;
     });
   }
+  const isValidInput = userInputs.duration >= 1;
+  let results = [];
+  if (isValidInput) {
+    results = calculateInvestmentResults(userInputs);
+  }
 
-  let results = calculateInvestmentResults(userInputs);
   return (
     <>
       <UserInput data={userInputs} onChangeInput={handleUserInputChange} />
-      <Results resultList={results} />
+      {isValidInput && <Results resultList={results} />}
+      {!isValidInput && <p className="center">Please enter a positive year</p>}
     </>
   );
 }
