@@ -2,7 +2,7 @@ import UserInput from "./UserInput";
 
 export default function UserInputFields({ data, onChangeInput }) {
   return (
-    <div id="user-input">
+    <section id="user-input">
       <div className="input-group">
         <UserInput
           name="initialInvestment"
@@ -32,6 +32,6 @@ export default function UserInputFields({ data, onChangeInput }) {
           data={data}
         />
       </div>
-    </div>
+    </section>
   );
 }

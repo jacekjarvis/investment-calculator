@@ -5,7 +5,7 @@ import UserInput from "./components/UserInputFields";
 
 import { calculateInvestmentResults } from "./util/investment";
 
-const USER_INPUTS = {
+const INITIAL_INPUTS = {
   initialInvestment: 10000,
   annualInvestment: 1200,
   expectedReturn: 6,
@@ -13,7 +13,7 @@ const USER_INPUTS = {
 };
 
 function App() {
-  const [userInputs, setUserInputs] = useState(USER_INPUTS);
+  const [userInputs, setUserInputs] = useState(INITIAL_INPUTS);
 
   function handleUserInputChange(newInput) {
     setUserInputs(() => {

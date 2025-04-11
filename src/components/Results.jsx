@@ -8,23 +8,24 @@ export default function Results({ resultList }) {
       <table id="result">
         <thead>
           <tr>
-            <td>Year</td>
-            <td>Investment Value</td>
-            <td>Interest (Year)</td>
-            <td>Total Interest</td>
-            <td>Invested Capital</td>
+            <th>Year</th>
+            <th>Investment Value</th>
+            <th>Interest (Year)</th>
+            <th>Total Interest</th>
+            <th>Invested Capital</th>
           </tr>
         </thead>
         <tbody>
           {resultList.map((result) => {
             totalInterest += result.interest;
+            const totalAmountInvested = result.valueEndOfYear - totalInterest;
             return (
               <tr key={result.year}>
                 <td>{result.year}</td>
                 <td>{format(result.valueEndOfYear)}</td>
                 <td>{format(result.interest)}</td>
                 <td>{format(totalInterest)}</td>
-                <td>{format(result.annualInvestment)}</td>
+                <td>{format(totalAmountInvested)}</td>
               </tr>
             );
           })}

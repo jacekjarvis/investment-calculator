@@ -16,6 +16,7 @@ export default function UserInput({ name, label, data, onChange }) {
         name={name}
         onChange={handleInputChange}
         value={value}
+        required
       />
     </div>
   );
